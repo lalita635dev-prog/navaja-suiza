@@ -13,13 +13,12 @@ body {
     align-items: center;
     height: 100vh;
 }
+*/
 
-.container {
+.mini-container {
     width: 350px;
     text-align: center;
 }
-
-*/
 
 body {
   margin: 0;
