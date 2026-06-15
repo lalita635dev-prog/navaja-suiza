@@ -1,3 +1,6 @@
+document.getElementById("toolName").innerHTML =
+    "🔪 Navaja Suiza / 🎲 Dados";
+
 const scene = document.getElementById("scene");
 const rollBtn = document.getElementById("rollBtn");
 const resultText = document.getElementById("result");

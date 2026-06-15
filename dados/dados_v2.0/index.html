@@ -1,35 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <title>Dados 3D | By Lalita635</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>*Dados | Navaja Suiza</title>
+
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="stylesheet" href="./styles.css">
+
 </head>
+
 <body>
+  <header class="ns-header">
 
-<div class="container">
-  <h1>🎲 Dados 3D</h1>
+    <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="breadcrumb">
 
-  <div class="controls">
-    <label>Cantidad:</label>
-    <select id="diceCount">
-      <option value="1">1 dado</option>
-      <option value="2">2 dados</option>
-      <option value="3">3 dados</option>
-      <option value="4">4 dados</option>
-      <option value="5">5 dados</option>
-    </select>
+      <span id="toolName">
+        🔧 Herramienta
+      </span>
 
-    <button id="rollBtn">Tirar</button>
+    </a>
+
+  </header>
+
+  <div class="container">
+    <h1 class="tool-title">🎲 Dados</h1>
+
+    <div class="controls">
+      <label>Cantidad:</label>
+      <select id="diceCount">
+        <option value="1">1 dado</option>
+        <option value="2">2 dados</option>
+        <option value="3">3 dados</option>
+        <option value="4">4 dados</option>
+        <option value="5">5 dados</option>
+      </select>
+
+      <button id="rollBtn">Tirar</button>
+    </div>
+
+    <div id="scene" class="scene"></div>
+
+    <div id="result" class="result"></div>
+
   </div>
 
-  <div id="scene" class="scene"></div>
+  <!-- FOOTER GLOBAL -->
 
-  <div id="result" class="result"></div>
+  <footer class="ns-footer">
 
-  <footer>By LTA</footer>
-</div>
+    <p>
+      © 2026 By Lalita
+    </p>
 
-<script src="script.js"></script>
+    <a href="https://lalita.dev.ar/" target="_blank" class="footer-link">
+
+      🌐 lalita-dev
+
+    </a>
+
+    <div class="footer-buttons">
+
+      <a href="example.zip" target="_blank" class="footer-btn">
+
+        📦 Descargar Código
+
+      </a>
+
+      <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="footer-btn">
+
+        🏠 Inicio
+
+      </a>
+
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
