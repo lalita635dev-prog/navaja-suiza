@@ -1,3 +1,6 @@
+document.getElementById("toolName").innerHTML =
+    "🔪 Navaja Suiza / 🔳 Generador de QR";
+
 let qrCode;
 let logoData = null;
 

@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
   <meta charset="UTF-8">
-  <title>QR Generator Pro</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Generador QR | Navaja Suiza</title>
+
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="stylesheet" href="./styles.css">
+
 </head>
+
 <body class="dark">
 
-<div class="container">
+  <header class="ns-header">
+    <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="breadcrumb">
+      <span id="toolName">
+        🔧 Herramienta
+      </span>
+    </a>
+  </header>
 
-  <div class="top-bar">
-    <h1>🔳 Generador de QR</h1>
-    <button id="themeToggle">🌙</button>
-  </div>
+  <main class="tool-container">
+    <div class="container">
+      <div class="top-bar">
+        <h1 class="tool-title">🔳 Generador de QR</h1>
+        <button id="themeToggle">🌙</button>
+      </div>
 
-  <!-- INPUT + GENERAR -->
-  <input type="text" id="urlInput" placeholder="Ingresá tu link..." />
-  <button class="main-btn" onclick="generateQR()">Generar QR</button>
+      <!-- INPUT + GENERAR -->
+      <input type="text" id="urlInput" placeholder="Ingresá tu link..." />
+      <button class="main-btn" onclick="generateQR()">Generar QR</button>
 
-  <!-- QR -->
-  <div id="qrContainer" class="fade"></div>
+      <!-- QR -->
+      <div id="qrContainer" class="fade"></div>
 
-  <!-- ACCIONES -->
-  <div class="buttons">
-    <button onclick="downloadQR('png')">Descargar PNG</button>
-    <button onclick="downloadQR('svg')">Descargar SVG</button>
-    <button onclick="copyQR()">Copiar</button>
-  </div>
+      <!-- ACCIONES -->
+      <div class="buttons">
+        <button onclick="downloadQR('png')">Descargar PNG</button>
+        <button onclick="downloadQR('svg')">Descargar SVG</button>
+        <button onclick="copyQR()">Copiar</button>
+      </div>
 
-  <!-- LOGO -->
-  <div class="control-block">
-    <h3>Agregá tu Logo</h3>
-    <div id="dropZone">Arrastra la imagen o hacer click para agregar</div>
-    <input type="file" id="logoInput" accept="image/*" hidden>
-    <span id="fileName">Sin logo</span>
-  </div>
+      <!-- LOGO -->
+      <div class="control-block">
+        <h3>Agregá tu Logo</h3>
+        <div id="dropZone">Arrastra la imagen o hacer click para agregar</div>
+        <input type="file" id="logoInput" accept="image/*" hidden>
+        <span id="fileName">Sin logo</span>
+      </div>
 
-  <!-- COLOR -->
-  <div class="control-block">
-    <h3>Cambiar el color del QR</h3>
-    <input type="color" id="colorPicker" value="#000000">
-  </div>
+      <!-- COLOR -->
+      <div class="control-block">
+        <h3>Cambiar el color del QR</h3>
+        <input type="color" id="colorPicker" value="#000000">
+      </div>
 
-  <!-- RESET -->
-  <button class="reset-btn" onclick="resetAll()">Reset</button>
+      <!-- RESET -->
+      <button class="reset-btn" onclick="resetAll()">Reset</button>
 
-  <p id="error"></p>
+      <p id="error"></p>
 
-</div>
+    </div>
+  </main>
 
-<footer>
-  <p>© By Lalita635</p>
-  <div class="links">
-    <a href="https://github.com/lalita635dev-prog/generadorqr/issues">Reportar Bug</a>
-    <a href="https://github.com/lalita635dev-prog/generadorqr/issues">Sugerir Mejora</a>
-    <a href="http://bit.ly/4fS0yUa">Colaborar</a>
-  </div>
-</footer>
+  <!-- FOOTER GLOBAL -->
 
-<script src="script.js"></script>
+  <footer class="ns-footer">
+    <p>© 2026 By Lalita</p>
+    <a href="https://lalita.dev.ar/" target="_blank" class="footer-link">🌐 lalita-dev</a>
+    <a href="http://bit.ly/4fS0yUa">Forma parte de nuestro Staff</a>
+    <div class="footer-buttons">
+      <a href="example.zip" target="_blank" class="footer-btn">📦 Descargar Código</a>
+      <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="footer-btn">🏠 Inicio</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
