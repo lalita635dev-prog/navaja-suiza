@@ -11,6 +11,9 @@ body {
 }
 
 .container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
   text-align: center;
   background: rgba(255,255,255,0.05);
   padding: 30px;
