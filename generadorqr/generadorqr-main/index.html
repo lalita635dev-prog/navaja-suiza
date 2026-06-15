@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>QR Generator Pro</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+</head>
+<body class="dark">
+
+<div class="container">
+
+  <div class="top-bar">
+    <h1>🔳 Generador de QR</h1>
+    <button id="themeToggle">🌙</button>
+  </div>
+
+  <!-- INPUT + GENERAR -->
+  <input type="text" id="urlInput" placeholder="Ingresá tu link..." />
+  <button class="main-btn" onclick="generateQR()">Generar QR</button>
+
+  <!-- QR -->
+  <div id="qrContainer" class="fade"></div>
+
+  <!-- ACCIONES -->
+  <div class="buttons">
+    <button onclick="downloadQR('png')">Descargar PNG</button>
+    <button onclick="downloadQR('svg')">Descargar SVG</button>
+    <button onclick="copyQR()">Copiar</button>
+  </div>
+
+  <!-- LOGO -->
+  <div class="control-block">
+    <h3>Agregá tu Logo</h3>
+    <div id="dropZone">Arrastra la imagen o hacer click para agregar</div>
+    <input type="file" id="logoInput" accept="image/*" hidden>
+    <span id="fileName">Sin logo</span>
+  </div>
+
+  <!-- COLOR -->
+  <div class="control-block">
+    <h3>Cambiar el color del QR</h3>
+    <input type="color" id="colorPicker" value="#000000">
+  </div>
+
+  <!-- RESET -->
+  <button class="reset-btn" onclick="resetAll()">Reset</button>
+
+  <p id="error"></p>
+
+</div>
+
+<footer>
+  <p>© By Lalita635</p>
+  <div class="links">
+    <a href="https://github.com/lalita635dev-prog/generadorqr/issues">Reportar Bug</a>
+    <a href="https://github.com/lalita635dev-prog/generadorqr/issues">Sugerir Mejora</a>
+    <a href="http://bit.ly/4fS0yUa">Colaborar</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

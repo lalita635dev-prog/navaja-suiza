@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Bolillero Bingo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🎱 Bolillero</h1>
+
+  <div class="controls">
+    <label>Total de bolillas</label>
+    <input type="number" id="totalBalls" value="90" min="1">
+
+    <label>Bolillas por tirada</label>
+    <input type="number" id="drawCount" value="1" min="1">
+
+    <button id="resetBtn">Reiniciar</button>
+  </div>
+
+  <div class="machine" id="machine">
+    <div class="balls" id="balls"></div>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <div class="history">
+    <h3>Historial</h3>
+    <div id="history"></div>
+  </div>
+
+  <p class="hint">Arrastrá hacia abajo para sacar bolillas</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

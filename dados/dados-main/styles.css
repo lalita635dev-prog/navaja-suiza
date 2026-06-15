@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  perspective: 1000px;
+}
+
+.container {
+  text-align: center;
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+select, button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+}
+
+button {
+  background: #6c5ce7;
+  color: white;
+  cursor: pointer;
+}
+
+.scene {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.dice {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 1s cubic-bezier(.17,.67,.83,.67);
+}
+
+.face {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+}
+
+/* Posiciones 3D */
+.front  { transform: rotateY(0deg) translateZ(40px); }
+.back   { transform: rotateY(180deg) translateZ(40px); }
+.right  { transform: rotateY(90deg) translateZ(40px); }
+.left   { transform: rotateY(-90deg) translateZ(40px); }
+.top    { transform: rotateX(90deg) translateZ(40px); }
+.bottom { transform: rotateX(-90deg) translateZ(40px); }
+
+.result {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.dice {
+  box-shadow: 0 20px 30px rgba(0,0,0,0.6);
+}
+
+.scene {
+  min-height: 120px;
+}
