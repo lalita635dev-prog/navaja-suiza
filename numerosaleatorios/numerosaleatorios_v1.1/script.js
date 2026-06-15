@@ -1,3 +1,6 @@
+document.getElementById("toolName").innerHTML =
+    "🔪 Navaja Suiza / 🎲 Generador de Números";
+
 const generateBtn = document.getElementById("generateBtn");
 const resultDiv = document.getElementById("result");
 

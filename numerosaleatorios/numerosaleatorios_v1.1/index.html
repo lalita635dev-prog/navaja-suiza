@@ -1,36 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Generador de Números Aleatorios | By Lalita635</title>
-    <link rel="stylesheet" href="styles.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Generador Números Aleatorios | Navaja Suiza</title>
+
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="stylesheet" href="./aleatorio_styles.css">
+
 </head>
+
 <body>
+<header class="ns-header">
+    <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="breadcrumb">
+      <span id="toolName">
+        🔧 Herramienta
+      </span>
+    </a>
+  </header>
 
-<div class="container">
-    <h1>🎲 Generador de Números</h1>
+  <main class="tool-container">
+    <div class="container">
+      <h1 class="tool-title">🎲 Generador de Números</h1>
 
-    <div class="card">
-        <label>Mínimo</label>
-        <input type="number" id="min" placeholder="Ej: 1">
+        <div class="card">
+            <label>Mínimo</label>
+            <input type="number" id="min" placeholder="Ej: 1">
 
-        <label>Máximo</label>
-        <input type="number" id="max" placeholder="Ej: 100">
+            <label>Máximo</label>
+            <input type="number" id="max" placeholder="Ej: 100">
 
-        <label>Cantidad de números</label>
-        <input type="number" id="count" placeholder="Ej: 5">
+            <label>Cantidad de números</label>
+            <input type="number" id="count" placeholder="Ej: 5">
 
-        <button id="generateBtn">Generar</button>
+            <button id="generateBtn">Generar</button>
+        </div>
+
+        <div class="result-card">
+            <h2>Resultado</h2>
+            <div id="result"></div>
+        </div>
+
     </div>
+  </main>
 
-    <div class="result-card">
-        <h2>Resultado</h2>
-        <div id="result"></div>
-    </div>
-
-    <p class="footer">By LTA</p>
-</div>
-
-<script src="script.js"></script>
+    <footer class="ns-footer">
+        <p>© 2026 By Lalita</p>
+        <a href="https://lalita.dev.ar/" target="_blank" class="footer-link">🌐 lalita-dev</a>
+        <a href="http://bit.ly/4fS0yUa" target="_blank" class="footer-link">Forma parte de nuestro Staff</a>
+        <div class="footer-buttons">
+            <a href="example.zip" target="_blank" class="footer-btn">📦 Descargar Código</a>
+            <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="footer-btn">🏠 Inicio</a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
+
 </html>
