@@ -1,73 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navaja Suiza</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navaja Suiza</title>
 
-<link rel="icon" href="assets/logo.png">
+    <link rel="icon" href="assets/logo.png">
 
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <header>
-        <h1>🔪 Navaja Suiza</h1>
-        <p>Tu colección de herramientas online</p>
-    </header>
+        <header>
+            <h1>🔪 Navaja Suiza</h1>
+            <p>Tu colección de herramientas online</p>
+        </header>
 
-    <main class="grid">
+        <section class="filters">
 
-        <a href="./dados/" class="card">
-            <div class="icon">🎲</div>
-            <h2>Dados</h2>
-            <p>Tira hasta 5 dados con animaciones.</p>
-        </a>
+            <input type="text" id="searchInput" placeholder="🔍 Buscar herramienta...">
 
-        <a href="./numeros/" class="card">
-            <div class="icon">🔢</div>
-            <h2>Números Aleatorios</h2>
-            <p>Genera uno o varios números al azar.</p>
-        </a>
+            <select id="categoryFilter">
+                <option value="all">Todas las categorías</option>
+                <option value="azar">Azar</option>
+                <option value="numeros">Números</option>
+                <option value="sorteos">Sorteos</option>
+                <option value="decisiones">Decisiones</option>
+                <option value="productividad">Productividad</option>
+                <option value="utilidades">Utilidades</option>
+            </select>
 
-        <a href="./bolillero/" class="card">
-            <div class="icon">🎱</div>
-            <h2>Bolillero</h2>
-            <p>Extracción de bolillas estilo bingo.</p>
-        </a>
+        </section>
 
-        <a href="./qr/" class="card">
-            <div class="icon">📱</div>
-            <h2>Generador QR</h2>
-            <p>Crea códigos QR personalizados.</p>
-        </a>
+        <main class="grid">
 
-        <a href="./ruleta/" class="card">
-            <div class="icon">🎡</div>
-            <h2>Ruleta</h2>
-            <p>Decide al azar entre múltiples opciones.</p>
-        </a>
+            <a href="dados/dados_v2.0/index.html" class="card" data-category="azar numeros" data-name="dados">
+                <div class="icon">🎲</div>
+                <h2>Dados</h2>
+                <p>Tira hasta 5 dados con animaciones.</p>
+            </a>
 
-        <div class="card soon">
-            <div class="icon">➕</div>
-            <h2>Próximamente</h2>
-            <p>Nuevas herramientas en camino.</p>
-        </div>
 
-    </main>
+            <a href="./numerosaleatorios/numerosaleatorios_v1.1/index.html" class="card" data-category="azar numeros" data-name="numeros">
+                <div class="icon">🔢</div>
+                <h2>Números Aleatorios</h2>
+                <p>Genera uno o varios números al azar.</p>
+            </a>
 
-    <footer>
-        <p>© 2026 LTA - Navaja Suiza</p>
-    </footer>
+            <a href="./bolillero/bolillero_v1.2/index.html" class="card" data-category="bolillero azar numeros" data-name="bolillero">
+                <div class="icon">🎱</div>
+                <h2>Bolillero</h2>
+                <p>Extracción de bolillas estilo bingo.</p>
+            </a>
 
-</div>
+            <a href="./generadorqr/generadorqr_v1.5/index.html" class="card" data-category="url qr" data-name="qr">
+                <div class="icon">📱</div>
+                <h2>Generador QR</h2>
+                <p>Crea códigos QR personalizados.</p>
+            </a>
 
-<script src="script.js"></script>
+            <a href="./ruleta/index.html" class="card" data-category="azar" data-name="ruleta">
+                <div class="icon">🎡</div>
+                <h2>Ruleta</h2>
+                <p>Decide al azar entre múltiples opciones.</p>
+            </a>
+
+            <div class="card soon">
+                <div class="icon">➕</div>
+                <h2>Próximamente</h2>
+                <p>Nuevas herramientas en camino.</p>
+            </div>
+
+        </main>
+
+        <footer>
+            <p>© 2026 By Lalita - Navaja Suiza</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>

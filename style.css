@@ -37,6 +37,31 @@ header p{
     font-size:1.1rem;
 }
 
+.filters{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    margin-bottom:40px;
+    flex-wrap:wrap;
+}
+
+.filters input,
+.filters select{
+    background:#1e293b;
+    color:white;
+    border:1px solid #334155;
+    border-radius:12px;
+    padding:12px 15px;
+    font-size:1rem;
+    min-width:250px;
+}
+
+.filters input:focus,
+.filters select:focus{
+    outline:none;
+    border-color:#38bdf8;
+}
+
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
