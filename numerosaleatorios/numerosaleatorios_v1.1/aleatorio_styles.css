@@ -15,11 +15,6 @@ body {
 }
 */
 
-.mini-container {
-    width: 350px;
-    text-align: center;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -34,9 +29,15 @@ body {
   padding: 20px;
 }
 
-
 h1 {
     margin-bottom: 20px;
+}
+
+.mini-container {
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card, .result-card {
