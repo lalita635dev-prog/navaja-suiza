@@ -215,3 +215,14 @@ button {
 
     box-shadow:0 0 15px rgba(56,189,248,.35);
 }
+
+.footer-link{
+    color:#38bdf8;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.footer-link:hover{
+    text-decoration:underline;
+}
