@@ -1,3 +1,6 @@
+document.getElementById("toolName").innerHTML =
+    "🔪 Navaja Suiza / 🎱 Bolillero";
+
 const machine = document.getElementById("machine");
 const ballsContainer = document.getElementById("balls");
 const result = document.getElementById("result");

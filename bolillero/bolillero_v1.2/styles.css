@@ -103,3 +103,115 @@ button {
   position: relative;
   background: radial-gradient(circle, #1e293b, #020617);
 }
+
+/* ==========================================
+   NAVAJA SUIZA - HEADER
+========================================== */
+
+.ns-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(15,23,42,.95);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #334155;
+
+    padding:15px 25px;
+}
+
+.breadcrumb{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:1.2rem;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.breadcrumb:hover{
+    color:#38bdf8;
+}
+
+/* ==========================================
+   CONTENIDO
+========================================== */
+
+.tool-container{
+    width:100%;
+    padding-top:20px;
+}
+
+.tool-title{
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+/* ==========================================
+   NAVAJA SUIZA - FOOTER
+========================================== */
+
+.ns-footer{
+
+    margin-top:50px;
+
+    padding:30px 20px;
+
+    border-top:1px solid #334155;
+
+    text-align:center;
+}
+
+.ns-footer p{
+
+    color:#94a3b8;
+
+    margin-bottom:20px;
+}
+
+.footer-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.footer-btn{
+
+    background:#1e293b;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    border:1px solid #334155;
+
+    transition:.3s;
+}
+
+.footer-btn:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#38bdf8;
+
+    box-shadow:0 0 15px rgba(56,189,248,.35);
+}
