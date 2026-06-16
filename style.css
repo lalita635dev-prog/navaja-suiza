@@ -109,8 +109,52 @@ header p{
     border-color:#334155;
 }
 
-footer{
+/* ==========================================
+   NAVAJA SUIZA - FOOTER
+========================================== */
+
+.ns-footer{
+    margin-top:50px;
+    padding:30px 20px;
+    border-top:1px solid #334155;
     text-align:center;
-    margin-top:60px;
-    color:#64748b;
+}
+
+.ns-footer p{
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+.footer-buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.footer-btn{
+    background:#1e293b;
+    color:white;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:12px;
+    border:1px solid #334155;
+    transition:.3s;
+}
+
+.footer-btn:hover{
+    transform:translateY(-3px);
+    border-color:#38bdf8;
+    box-shadow:0 0 15px rgba(56,189,248,.35);
+}
+
+.footer-link{
+    color:#38bdf8;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.footer-link:hover{
+    text-decoration:underline;
 }
