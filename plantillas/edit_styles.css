@@ -56,7 +56,7 @@
 }
 
 .ns-footer p{
-    color:#94a3b8;
+    color: white;
     margin-bottom:20px;
 }
 
@@ -69,7 +69,7 @@
 
 .footer-btn{
     background:#1e293b;
-    color:white;
+    color:#94a3b8;
     text-decoration:none;
     padding:12px 20px;
     border-radius:12px;
