@@ -2,195 +2,30 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Ruleta by Lalita635</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: #1e1e2f;
-            color: white;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        h1 {
-            margin-top: 20px;
-        }
+  <title>Ruleta | Navaja Suiza</title>
 
-        /* Flecha */
-        .pointer {
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 30px solid #ff4d6d;
-            margin: 0 auto;
-        }
+  <link rel="icon" href="../../assets/logo.png">
+  <link rel="stylesheet" href="./ruleta_style.css">
 
-        /* Canvas */
-        canvas {
-            margin-top: 20px;
-            background: #fff;
-            border-radius: 50%;
-        }
-
-        /* Botones */
-        button,
-        input {
-            margin: 5px;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        button {
-            cursor: pointer;
-            background: #ff4d6d;
-            color: white;
-        }
-
-        /* Textarea */
-        textarea {
-            width: 80%;
-            height: 80px;
-            margin-top: 10px;
-        }
-
-        /* Modal */
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: #2a2a40;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            animation: pop 0.3s ease;
-        }
-
-        @keyframes pop {
-            from {
-                transform: scale(0.5);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .modal h2 {
-            margin-bottom: 20px;
-        }
-
-        .close-btn {
-            background: #4CAF50;
-        }
-
-        canvas {
-            width: 90vw;
-            max-width: 400px;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .pointer {
-            margin-top: 10px;
-        }
-
-        /* Mejorar botones en móvil */
-        button {
-            width: auto;
-            min-width: 120px;
-            padding: 10px 18px;
-        }
-
-        /* Textarea responsive */
-        textarea {
-            width: 90%;
-        }
-
-        input,
-        textarea {
-            width: 90%;
-            max-width: 400px;
-            background: #2a2a40;
-            color: white;
-            border: 1px solid #444;
-            border-radius: 8px;
-            padding: 10px;
-            outline: none;
-        }
-
-        input::placeholder {
-            color: #aaa;
-        }
-
-        textarea {
-            resize: none;
-        }
-
-        .actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .file-label {
-            display: inline-block;
-            background: #ff4d6d;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 5px;
-            cursor: pointer;
-            min-width: 120px;
-            text-align: center;
-            transition: 0.2s;
-        }
-
-        .file-label:hover {
-            background: #ff2e55;
-        }
-
-        .footer {
-            margin-top: 40px;
-            padding: 20px;
-            background: #141420;
-            border-top: 1px solid #333;
-        }
-
-        .footer-links {
-            margin-top: 10px;
-        }
-
-        .footer a {
-            color: #ff4d6d;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
 
-    <h1>🎡 Ruleta de Opciones</h1>
+    <header class="ns-header">
+    <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="breadcrumb">
+      <span id="toolName">
+        🔧 Herramienta
+      </span>
+    </a>
+  </header>
+
+  <main class="tool-container">
+    <div class="container">
+      <h1 class="tool-title">🎡 Ruleta de Opciones</h1>
 
     <div class="pointer"></div>
     <canvas id="wheel"></canvas>
@@ -226,242 +61,22 @@
             </div>
         </div>
     </div>
+    </div>
+  </main>
 
-    <script>
-        let options = ["Alienígena", "Vampiro", "Sirena", "Hechicero", "Hada", "Licántropo"];
-        let startAngle = 0;
-        let arc;
-        let spinning = false;
-        let lastWinnerIndex = null;
-
-        const canvas = document.getElementById("wheel");
-        const ctx = canvas.getContext("2d");
-
-        function resizeCanvas() {
-            let size = Math.min(window.innerWidth * 0.9, 400);
-            canvas.width = size;
-            canvas.height = size;
-        }
-
-        window.addEventListener("resize", () => {
-            resizeCanvas();
-            drawWheel();
-        });
-
-        function drawWheel() {
-            if (options.length === 0) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = "white";
-                ctx.font = "16px Arial";
-                ctx.textAlign = "center";
-                ctx.fillText("No hay opciones", canvas.width / 2, canvas.height / 2);
-
-                return;
-            } //por si no hay nada para mostrar
-            arc = Math.PI * 2 / options.length;
-            let size = canvas.width;
-            let center = size / 2;
-
-            ctx.clearRect(0, 0, size, size);
-
-            options.forEach((opt, i) => {
-                let angle = startAngle + i * arc;
-
-                ctx.fillStyle = `hsl(${(i * 360 / options.length)}, 70%, 60%)`;
-                ctx.beginPath();
-                ctx.moveTo(center, center);
-                ctx.arc(center, center, center, angle, angle + arc);
-                ctx.fill();
-
-                ctx.save();
-                ctx.translate(center, center);
-                ctx.rotate(angle + arc / 2);
-                ctx.fillStyle = "#fff";
-                let baseFontSize = canvas.width / (options.length * 2);
-                let fontSize = baseFontSize;
-
-                // Reducir tamaño si el texto es largo
-                if (opt.length > 5) {
-                    fontSize *= 0.7;
-                }
-                if (opt.length > 9) {
-                    fontSize *= 0.6;
-                }
-                if (opt.length > 13) {
-                    fontSize *= 0.5;
-                }
-
-                fontSize = Math.max(10, fontSize);
-
-                ctx.font = `bold ${fontSize}px Arial`;
-                ctx.textAlign = "center";
-
-                // 🔥 Sombra para mejorar lectura
-                ctx.shadowColor = "rgba(0,0,0,0.8)";
-                ctx.shadowBlur = 4;
-                ctx.shadowOffsetX = 2;
-                ctx.shadowOffsetY = 2;
-
-                // 🔥 Borde (stroke) para contraste
-                ctx.strokeStyle = "black";
-                ctx.lineWidth = Math.max(2, center * 0.015);
-
-                // Dibujar texto con borde + relleno
-                ctx.strokeText(opt, center * 0.65, 0);
-                ctx.fillText(opt, center * 0.65, 0);
-
-                // reset sombra (importante)
-                ctx.shadowColor = "transparent";
-                ctx.shadowBlur = 0;
-                ctx.shadowOffsetX = 0;
-                ctx.shadowOffsetY = 0;
-                ctx.restore();
-            });
-        }
-
-        function spin() {
-            if (spinning) return;
-            spinning = true;
-
-            let spinAngle = Math.random() * 2000 + 3000;
-            let duration = 3500;
-            let start = null;
-
-            function animate(timestamp) {
-                if (!start) start = timestamp;
-                let progress = timestamp - start;
-
-                let easeOut = 1 - Math.pow(1 - progress / duration, 3);
-                startAngle += (spinAngle * easeOut) * Math.PI / 180;
-
-                drawWheel();
-
-                if (progress < duration) {
-                    requestAnimationFrame(animate);
-                } else {
-                    spinning = false;
-                    showResult();
-                }
-            }
-
-            requestAnimationFrame(animate);
-        }
-
-        function showResult() {
-            let degrees = startAngle * 180 / Math.PI;
-            let normalized = (360 - ((degrees - 270) % 360)) % 360;
-            let index = Math.floor(normalized / (360 / options.length));
-            lastWinnerIndex = index;
-            let winner = options[index];
-
-            document.getElementById("resultText").innerText = winner;
-            document.getElementById("resultModal").style.display = "flex";
-        }
-
-        function closeModal() {
-            document.getElementById("resultModal").style.display = "none";
-        }
-
-        function removeWinner() {
-            if (lastWinnerIndex === null) return;
-
-            options.splice(lastWinnerIndex, 1);
-            persistOptions();
-
-            updateBox();
-            drawWheel();
-
-            closeModal();
-        }
-
-        function addOption() {
-            let input = document.getElementById("newOption");
-            if (input.value) {
-                options.push(input.value);
-                persistOptions();
-                input.value = "";
-                updateBox();
-                drawWheel();
-            }
-        }
-
-        function updateBox() {
-            document.getElementById("optionsBox").value = options.join("\n");
-        }
-
-        function syncFromTextarea() {
-            options = document.getElementById("optionsBox").value
-                .split("\n")
-                .filter(o => o);
-
-            persistOptions();
-            drawWheel();
-        }
-
-        //autoguardado
-        function persistOptions() {
-            localStorage.setItem("wheelOptions", JSON.stringify(options));
-        }
-
-        function exportJSON() {
-            let dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(options));
-            let dl = document.createElement("a");
-            dl.setAttribute("href", dataStr);
-            dl.setAttribute("download", "ruleta.json");
-            dl.click();
-        }
-
-        function importJSON(event) {
-            let file = event.target.files[0];
-
-            document.getElementById("fileName").innerText = file.name;
-
-            let reader = new FileReader();
-
-            reader.onload = function (e) {
-                try {
-                    options = JSON.parse(e.target.result);
-                } catch {
-                    alert("El archivo no es un JSON válido");
-                    return;
-                }
-                persistOptions();
-                updateBox();
-                drawWheel();
-            };
-
-            reader.readAsText(file);
-        }
-
-        // init
-        resizeCanvas();
-
-        let saved = localStorage.getItem("wheelOptions");
-
-        if (saved) {
-            try {
-                options = JSON.parse(saved);
-            } catch {
-                options = [];
-            }
-        }
-
-        updateBox();
-        drawWheel();
-    </script>
-
-    <footer class="footer">
-        <p>© By Lalita635</p>
-
-        <div class="footer-links">
-            <a href="https://github.com/lalita635dev-prog/ruleta" target="_blank">GitHub</a>
-            <a href="https://github.com/lalita635dev-prog/ruleta/issues" target="_blank">Reportar Bug</a>
-            <a href="https://github.com/lalita635dev-prog/ruleta/issues" target="_blank">Sugerir Mejora</a>
-            <a href="http://bit.ly/4fS0yUa" target="_blank">Colaborar</a>
-        </div>
-    </footer>
-
+<!-- FOOTER GLOBAL -->
+    <footer class="ns-footer">
+    <p>
+      © 2026 By 
+      <a href="https://lalita.dev.ar/" target="_blank" class="footer-link">🌐 Lalita</a> | 
+      <a href="http://bit.ly/4fS0yUa" target="_blank" class="footer-link">💪Forma parte de nuestro Staff</a> | 
+      <a href="example.zip" target="_blank" class="footer-link">🔗 Quiero esta herramienta</a>
+    </p>
+      <div class="footer-buttons">
+      <a href="https://lalita635dev-prog.github.io/navaja-suiza/" class="footer-btn">🏠 Inicio</a>
+    </div>
+  </footer>
+<script src="script.js"></script>
 </body>
 
 </html>

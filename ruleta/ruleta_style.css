@@ -1,0 +1,304 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #1e1e2f;
+    color: white;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+/* Flecha */
+.pointer {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #ff4d6d;
+    margin: 0 auto;
+}
+
+/* Canvas */
+canvas {
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+/* Botones */
+button,
+input {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
+    background: #ff4d6d;
+    color: white;
+}
+
+/* Textarea */
+textarea {
+    width: 80%;
+    height: 80px;
+    margin-top: 10px;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #2a2a40;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal h2 {
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    background: #4CAF50;
+}
+
+canvas {
+    width: 90vw;
+    max-width: 400px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.pointer {
+    margin-top: 10px;
+}
+
+/* Mejorar botones en móvil */
+button {
+    width: auto;
+    min-width: 120px;
+    padding: 10px 18px;
+}
+
+/* Textarea responsive */
+textarea {
+    width: 90%;
+}
+
+input,
+textarea {
+    width: 90%;
+    max-width: 400px;
+    background: #2a2a40;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+textarea {
+    resize: none;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.file-label {
+    display: inline-block;
+    background: #ff4d6d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.file-label:hover {
+    background: #ff2e55;
+}
+
+/* estilo anterior
+.footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: #141420;
+    border-top: 1px solid #333;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer a {
+    color: #ff4d6d;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+*/
+
+/* ==========================================
+   NAVAJA SUIZA - HEADER
+========================================== */
+
+.ns-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(15,23,42,.95);
+
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid #334155;
+
+    padding:15px 25px;
+}
+
+.breadcrumb{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:1.2rem;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.breadcrumb:hover{
+    color:#38bdf8;
+}
+
+/* ==========================================
+   CONTENIDO
+========================================== */
+
+.tool-container{
+    width:100%;
+    padding-top:20px;
+}
+
+.tool-title{
+    margin-bottom:20px;
+    font-size:2rem;
+}
+
+/* ==========================================
+   NAVAJA SUIZA - FOOTER
+========================================== */
+
+.ns-footer{
+
+    margin-top:50px;
+
+    padding:30px 20px;
+
+    border-top:1px solid #334155;
+
+    text-align:center;
+}
+
+.ns-footer p{
+
+    color:#94a3b8;
+
+    margin-bottom:20px;
+}
+
+.footer-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.footer-btn{
+
+    background:#1e293b;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    border-radius:12px;
+
+    border:1px solid #334155;
+
+    transition:.3s;
+}
+
+.footer-btn:hover{
+
+    transform:translateY(-3px);
+
+    border-color:#38bdf8;
+
+    box-shadow:0 0 15px rgba(56,189,248,.35);
+}
+
+.footer-link{
+    color:#38bdf8;
+    text-decoration:none;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.footer-link:hover{
+    text-decoration:underline;
+}
