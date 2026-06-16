@@ -35,6 +35,7 @@ h1 {
 
 .mini-container {
     width: 350px;
+    margin: 0 auto;
     display: grid;
     justify-content: center;
     align-items: center;
