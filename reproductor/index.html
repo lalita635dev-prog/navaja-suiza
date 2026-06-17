@@ -26,15 +26,51 @@
         <div class="player-container">
             <h1 class="tool-title">🎧 Reproductor Multi-Plataforma</h1>
 
-                <div class="input-area">
-                    <input type="text" id="mediaUrl"
-                        placeholder="Pega un enlace de YouTube, Spotify, SoundCloud o Dailymotion...">
-                    <button id="loadBtn">Cargar</button>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="all">
+                    🌎 Todo
+                </button>
+
+                <button class="tab-btn" data-tab="video">
+                    🎬 Video
+                </button>
+
+                <button class="tab-btn" data-tab="audio">
+                    🎵 Audio
+                </button>
+            </div>
+
+            <div class="input-area">
+                <input type="text" id="mediaUrl"
+                    placeholder="Pega un enlace de YouTube, Spotify, SoundCloud o Dailymotion...">
+                <button id="loadBtn">Cargar</button>
+            </div>
+
+            <div id="canvas-reproductor" class="canvas-reproductor">
+                <div class="placeholder-text">El reproductor aparecerá aquí</div>
+            </div>
+
+            <div class="actions">
+
+                <button id="clearPlayerBtn" class="secondary-btn">
+                    🧹 Limpiar reproductor
+                </button>
+
+                <button id="clearHistoryBtn" class="secondary-btn">
+                    🗑️ Limpiar historial
+                </button>
+
+            </div>
+
+            <div class="history-box">
+
+                <h3>📜 Historial</h3>
+
+                <div id="historyList">
+                    Sin reproducciones.
                 </div>
 
-                <div id="canvas-reproductor" class="canvas-reproductor">
-                    <div class="placeholder-text">El reproductor aparecerá aquí</div>
-                </div>
+            </div>
 
         </div>
     </main>
