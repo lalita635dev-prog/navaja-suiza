@@ -68,6 +68,12 @@ header p{
     gap:25px;
 }
 
+.grid-soon{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:25px;
+}
+
 .card{
     background:#1e293b;
     border:1px solid #334155;
@@ -212,7 +218,7 @@ header p{
     border:1px solid #334155;
     border-radius:12px;
 
-    padding:20px 20px 20px 50px;
+    padding:15px 15px 15px 45px;
 
     position:relative;
 
@@ -229,7 +235,7 @@ header p{
         );
 
     background-size:
-        100% 32px;
+        100% 26px;
 
     background-position:
         30px 0;
@@ -251,7 +257,7 @@ header p{
 
 .task-list li{
     color:#e2e8f0;
-    line-height:2rem;
+    line-height:1.6rem;
 }
 
 .task-list ol{
