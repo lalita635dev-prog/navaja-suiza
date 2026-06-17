@@ -156,10 +156,43 @@ header p{
 }
 
 .note-box{
-    margin-top:25px;
+    margin-top:15px;
     background:#111827;
     border:1px solid #334155;
     border-radius:12px;
     padding:15px;
     text-align:left;
+}
+
+.note-box ul{
+    padding-left:20px;
+}
+
+.note-box li{
+    margin:6px 0;
+    color:#cbd5e1;
+}
+
+.status{
+    display:inline-block;
+    padding:5px 10px;
+    border-radius:999px;
+    font-size:.8rem;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.planned{
+    background:#334155;
+    color:#cbd5e1;
+}
+
+.progress{
+    background:#1e40af;
+    color:white;
+}
+
+.testing{
+    background:#ca8a04;
+    color:white;
 }
