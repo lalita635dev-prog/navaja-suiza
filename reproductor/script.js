@@ -1,75 +1,61 @@
 document.getElementById("toolName").innerHTML =
     "🔪 Navaja Suiza / 📺 Reproductor de YouTube";
 
-// REPLAZA ESTO CON TU API KEY DE GOOGLE CLOUD
-const API_KEY = 'AIzaSyCq9EF68Y-VkuBeoCVscPdaxIDDtHf--Z4';
+// script.js
+document.getElementById('loadBtn').addEventListener('click', procesarUrl);
 
-const searchBtn = document.getElementById('search-btn');
-const queryInput = document.getElementById('query');
-const resultsContainer = document.getElementById('results');
-const player = document.getElementById('player');
+function procesarUrl() {
+    const url = document.getElementById('mediaUrl').value.trim();
+    const canvas = document.getElementById('canvas-reproductor');
+    
+    if (!url) return alert("Por favor, ingresa una URL válida.");
 
-// Escuchar clic en el botón y tecla Enter
-searchBtn.addEventListener('click', searchVideos);
-queryInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchVideos(); });
+    // Resetear clases por si venía de un video anterior
+    canvas.classList.remove('video-active');
+    canvas.innerHTML = '';
 
-async function searchVideos() {
-    const query = queryInput.value.trim();
-    if (!query) return;
+    // 1. REGLA YOUTUBE
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const ytRegEx = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+        const match = url.match(ytRegEx);
+        if (match && match[1]) {
+            canvas.classList.add('video-active');
+            canvas.innerHTML = `<iframe src="https://www.youtube.com/embed/${match[1]}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+            return;
+        }
+    }
 
-    if (API_KEY === 'TU_API_KEY_AQUÍ') {
-        alert('Por favor, introduce tu API Key de YouTube en el código JavaScript.');
+    // 2. REGLA SPOTIFY
+    if (url.includes('spotify.com')) {
+        // Convierte urls normales en urls de inserción (embed)
+        // Ej: https://open.spotify.com/track/4PTG3Z6ehGkBF3zIwYQZ6b -> .../embed/track/...
+        const embedUrl = url.replace('spotify.com/', 'spotify.com/embed/');
+        canvas.innerHTML = `<iframe src="${embedUrl}" width="100%" height="352" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
         return;
     }
 
-    // URL de la API de YouTube para buscar videos por palabra clave
-    const url = `https://googleapis.com{encodeURIComponent(query)}&type=video&key=${API_KEY}`;
-
-    try {
-        resultsContainer.innerHTML = '<p>Buscando...</p>';
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data.items && data.items.length > 0) {
-            displayResults(data.items);
-            // Reproducir el primer video de la lista automáticamente
-            playVideo(data.items[0].id.videoId);
-        } else {
-            resultsContainer.innerHTML = '<p>No se encontraron videos.</p>';
-        }
-    } catch (error) {
-        console.error('Error al buscar videos:', error);
-        resultsContainer.innerHTML = '<p>Hubo un error en la búsqueda. Revisa la consola.</p>';
+    // 3. REGLA SOUNDCLOUD
+    if (url.includes('soundcloud.com')) {
+        // SoundCloud requiere pasar la URL completa codificada a su widget oficial
+        const encondedUrl = encodeURIComponent(url);
+        canvas.innerHTML = `<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=${encondedUrl}&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>`;
+        return;
     }
-}
 
-function displayResults(videos) {
-    resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+    // 4. REGLA DAILYMOTION
+    if (url.includes('dailymotion.com') || url.includes('dai.ly')) {
+        // Extraer ID de Dailymotion
+        const dmRegEx = /(?:dailymotion\.com(?:\/video|\/embed\/video)\/([^_]+)|dai\.ly\/([^\s?]+))/;
+        const match = url.match(dmRegEx);
+        const dmId = match ? (match[1] || match[2]) : null;
+        
+        if (dmId) {
+            canvas.classList.add('video-active');
+            canvas.innerHTML = `<iframe src="https://www.dailymotion.com/embed/video/${dmId}?autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+            return;
+        }
+    }
 
-    videos.forEach(video => {
-        const videoId = video.id.videoId;
-        const title = video.snippet.title;
-        const thumbnail = video.snippet.thumbnails.medium.url;
-        const channel = video.snippet.channelTitle;
-
-        // Crear el elemento HTML de la tarjeta
-        const item = document.createElement('div');
-        item.className = 'video-item';
-        item.innerHTML = `
-                <img src="${thumbnail}" alt="${title}">
-                <div>
-                    <h4>${title}</h4>
-                    <p>${channel}</p>
-                </div>
-            `;
-
-        // Cambiar de video al hacer clic
-        item.addEventListener('click', () => playVideo(videoId));
-        resultsContainer.appendChild(item);
-    });
-}
-
-function playVideo(videoId) {
-    // Cargar el video en el iframe sin salir de la web
-    player.src = `https://youtube.com{videoId}?autoplay=1`;
+    // Si no coincide con ninguna
+    canvas.innerHTML = `<div class="placeholder-text" style="color: #ff4a4a;">Plataforma no soportada o URL incorrecta.</div>`;
 }
