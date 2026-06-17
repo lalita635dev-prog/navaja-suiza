@@ -1,5 +1,5 @@
 document.getElementById("toolName").innerHTML =
-    "🔪 Navaja Suiza / 📺 Reproductor de YouTube";
+    "🔪 Navaja Suiza / 🎧 Reproductor Multi-Plataforma";
 
 // script.js
 document.getElementById('loadBtn').addEventListener('click', procesarUrl);

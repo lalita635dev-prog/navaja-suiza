@@ -1,4 +1,4 @@
-/* style.css */
+/*
 body {
     margin: 0;
     padding: 0;
@@ -10,11 +10,20 @@ body {
     align-items: center;
     min-height: 100vh;
 }
+*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
 
 .player-container {
     width: 90%;
     max-width: 700px;
-    background: #1e1e1e;
+    margin: 0 auto;
+    background:#1e293b;
+    border:1px solid #334155;
     padding: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.5);
@@ -61,7 +70,6 @@ button:hover {
     background: #1ed760;
 }
 
-/* Contenedor mágico responsivo para IFRAMES */
 .canvas-reproductor {
     position: relative;
     width: 100%;
@@ -133,6 +141,7 @@ button:hover {
 .tool-container{
     width:100%;
     padding-top:20px;
+    min-height:calc(100vh - 220px);
 }
 
 .tool-title{
