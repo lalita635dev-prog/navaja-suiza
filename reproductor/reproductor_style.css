@@ -1,16 +1,3 @@
-/*
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #121212;
-    color: #ffffff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-*/
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -32,7 +19,7 @@ body {
 h2 {
     margin-top: 0;
     text-align: center;
-    color: #1DB954; /* Un toque verde estilo streaming */
+    color: #1DB954;
 }
 
 .input-area {

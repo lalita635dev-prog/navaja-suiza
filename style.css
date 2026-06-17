@@ -155,8 +155,11 @@ header p{
     margin-bottom:20px;
 }
 
-/*
-.footer-link:hover{
-    text-decoration:underline;
+.note-box{
+    margin-top:25px;
+    background:#111827;
+    border:1px solid #334155;
+    border-radius:12px;
+    padding:15px;
+    text-align:left;
 }
-*/
