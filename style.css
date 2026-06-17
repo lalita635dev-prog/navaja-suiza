@@ -99,7 +99,6 @@ header p{
 }
 
 .soon{
-    opacity:.6;
     cursor:default;
 }
 
@@ -107,6 +106,11 @@ header p{
     transform:none;
     box-shadow:none;
     border-color:#334155;
+}
+
+.soon .icon,
+.soon h2{
+    opacity:.7;
 }
 
 /* ==========================================
@@ -198,47 +202,91 @@ header p{
 }
 
 /* Anotador */
-.notebook-page {
-    background-color: #fff8e7; /* Color crema de hoja de papel */
-    width: 100%;
-    max-width: 600px;
-    padding: 40px 40px 40px 70px; /* Más espacio a la izquierda para el margen */
-    box-sizing: border-box;
-    position: relative;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.1); /* Efecto de sombra realista */
-    
-    /* Líneas horizontales de la libreta */
-    background-image: 
-        linear-gradient(to right, #ff8b8b 2px, transparent 2px), /* Línea vertical roja del margen */
-        linear-gradient(to bottom, transparent 29px, #d1e8fa 29px); /* Líneas horizontales azules */
-    background-size: 100% 30px; /* Espaciado de 30px entre líneas */
-    background-position: 50px 0, 0 0;
-    background-repeat: repeat-y;
+.notebook-page{
+    margin-top:15px;
+
+    background:#111827;
+
+    border:1px solid #334155;
+    border-radius:12px;
+
+    padding:20px 20px 20px 50px;
+
+    position:relative;
+
+    background-image:
+        linear-gradient(
+            to right,
+            rgba(239,68,68,.45) 2px,
+            transparent 2px
+        ),
+        linear-gradient(
+            to bottom,
+            transparent 31px,
+            rgba(56,189,248,.15) 31px
+        );
+
+    background-size:
+        100% 32px;
+
+    background-position:
+        30px 0;
+
+    overflow:hidden;
 }
 
-.notebook-page h2 {
-    margin-top: -5px;
-    margin-bottom: 25px;
-    color: #333;
-    text-align: center;
+.notebook-page p{
+    color:#38bdf8;
+    font-weight:600;
+    margin-bottom:10px;
 }
 
-/* Estilo de la lista de tareas */
-.task-list {
-    list-style: none; /* Elimina los puntos por defecto */
-    padding: 0;
-    margin: 0;
+/* Estilo de la lista */
+.task-list{
+    margin:0;
+    padding-left:18px;
 }
 
-.task-list li {
-    font-size: 20px;
-    line-height: 30px; /* Alineado con el alto del fondo */
-    margin-bottom: 0px;
-    padding-left: 10px;
-    position: relative;
+.task-list li{
+    color:#e2e8f0;
+    line-height:2rem;
 }
+
+.task-list ol{
+    margin-top:5px;
+    padding-left:20px;
+}
+
+.task-list ol li{
+    color:#cbd5e1;
+    line-height:1.8rem;
+}
+
+/* hoja arrancada */
+.notebook-page::before{
+    content:"";
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:12px;
+
+    background:
+        radial-gradient(
+            circle at 10px 12px,
+            transparent 7px,
+            #111827 8px
+        );
+
+    background-size:20px 12px;
+}
+
+
 
 /* Casilla de verificación personalizada */
+/*
 .task-list li input[type="checkbox"] {
     position: absolute;
     left: -35px;
@@ -254,14 +302,17 @@ header p{
     outline: none;
     transition: background 0.2s;
 }
+*/
 
 /* Estado cuando la tarea está completada */
+/*
 .task-list li input[type="checkbox"]:checked {
     background-color: #4caf50;
     border-color: #4caf50;
 }
 
 .task-list li input[type="checkbox"]:checked + span {
-    text-decoration: line-through; /* Tacha el texto */
+    text-decoration: line-through;
     color: #888;
 }
+*/
