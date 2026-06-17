@@ -196,3 +196,72 @@ header p{
     background:#ca8a04;
     color:white;
 }
+
+/* Anotador */
+.notebook-page {
+    background-color: #fff8e7; /* Color crema de hoja de papel */
+    width: 100%;
+    max-width: 600px;
+    padding: 40px 40px 40px 70px; /* Más espacio a la izquierda para el margen */
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2), 0 6px 20px rgba(0,0,0,0.1); /* Efecto de sombra realista */
+    
+    /* Líneas horizontales de la libreta */
+    background-image: 
+        linear-gradient(to right, #ff8b8b 2px, transparent 2px), /* Línea vertical roja del margen */
+        linear-gradient(to bottom, transparent 29px, #d1e8fa 29px); /* Líneas horizontales azules */
+    background-size: 100% 30px; /* Espaciado de 30px entre líneas */
+    background-position: 50px 0, 0 0;
+    background-repeat: repeat-y;
+}
+
+.notebook-page h2 {
+    margin-top: -5px;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+}
+
+/* Estilo de la lista de tareas */
+.task-list {
+    list-style: none; /* Elimina los puntos por defecto */
+    padding: 0;
+    margin: 0;
+}
+
+.task-list li {
+    font-size: 20px;
+    line-height: 30px; /* Alineado con el alto del fondo */
+    margin-bottom: 0px;
+    padding-left: 10px;
+    position: relative;
+}
+
+/* Casilla de verificación personalizada */
+.task-list li input[type="checkbox"] {
+    position: absolute;
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 2px solid #555;
+    border-radius: 4px;
+    appearance: none;
+    outline: none;
+    transition: background 0.2s;
+}
+
+/* Estado cuando la tarea está completada */
+.task-list li input[type="checkbox"]:checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+.task-list li input[type="checkbox"]:checked + span {
+    text-decoration: line-through; /* Tacha el texto */
+    color: #888;
+}
